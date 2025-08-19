@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SessionStoreType {
+protocol SessionStoreType: AnyObject {
     var userName: String? { get set }
     var isRegistered: Bool { get set }
 }
