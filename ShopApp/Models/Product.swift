@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct Product: Decodable, Equatable {
+    let id: Int
+    let title: String
+    let price: Double
+}
