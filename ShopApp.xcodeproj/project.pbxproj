@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42A7708A2E5330DB00F3922B /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A770892E5330DB00F3922B /* SessionStore.swift */; };
 		42C3CD992E51DAD400AB057D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C3CD912E51DAD400AB057D /* AppDelegate.swift */; };
 		42C3CD9A2E51DAD400AB057D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C3CD962E51DAD400AB057D /* SceneDelegate.swift */; };
 		42C3CD9B2E51DAD400AB057D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C3CD972E51DAD400AB057D /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		42A770892E5330DB00F3922B /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		42C3CD5D2E51D7D600AB057D /* ShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C3CD732E51D7D800AB057D /* ShopAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C3CD7D2E51D7D800AB057D /* ShopAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +149,7 @@
 		42C3CDA42E52FA3400AB057D /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				42A770892E5330DB00F3922B /* SessionStore.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42C3CDAB2E52FBEB00AB057D /* AppCoordinator.swift in Sources */,
+				42A7708A2E5330DB00F3922B /* SessionStore.swift in Sources */,
 				42C3CD992E51DAD400AB057D /* AppDelegate.swift in Sources */,
 				42C3CD9A2E51DAD400AB057D /* SceneDelegate.swift in Sources */,
 				42C3CD9B2E51DAD400AB057D /* ViewController.swift in Sources */,
