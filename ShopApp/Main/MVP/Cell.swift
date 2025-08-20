@@ -1,5 +1,5 @@
 //
-//  MainContracts.swift
+//  Cell.swift
 //  ShopApp
 //
 //  Created by Alexander Shevtsov on 20.08.2025.
