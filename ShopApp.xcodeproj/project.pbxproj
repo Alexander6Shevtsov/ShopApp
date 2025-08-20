@@ -15,6 +15,8 @@
 		42A770B72E54B26900F3922B /* MainPlaceholderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A770B62E54B26900F3922B /* MainPlaceholderVC.swift */; };
 		42A770BA2E55C9F400F3922B /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A770B92E55C9F400F3922B /* Validation.swift */; };
 		42A770C22E55CDF700F3922B /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A770C12E55CDF700F3922B /* RegistrationViewModel.swift */; };
+		42A770C42E55D42400F3922B /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A770C32E55D42400F3922B /* RegistrationView.swift */; };
+		42A770CB2E56333500F3922B /* MainContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A770CA2E56333500F3922B /* MainContracts.swift */; };
 		42C3CD992E51DAD400AB057D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C3CD912E51DAD400AB057D /* AppDelegate.swift */; };
 		42C3CD9A2E51DAD400AB057D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C3CD962E51DAD400AB057D /* SceneDelegate.swift */; };
 		42C3CD9B2E51DAD400AB057D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C3CD972E51DAD400AB057D /* ViewController.swift */; };
@@ -49,6 +51,8 @@
 		42A770B62E54B26900F3922B /* MainPlaceholderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPlaceholderVC.swift; sourceTree = "<group>"; };
 		42A770B92E55C9F400F3922B /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		42A770C12E55CDF700F3922B /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		42A770C32E55D42400F3922B /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		42A770CA2E56333500F3922B /* MainContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContracts.swift; sourceTree = "<group>"; };
 		42C3CD5D2E51D7D600AB057D /* ShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C3CD732E51D7D800AB057D /* ShopAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C3CD7D2E51D7D800AB057D /* ShopAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +109,14 @@
 				42A770B92E55C9F400F3922B /* Validation.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		42A770C92E5632F900F3922B /* MVP */ = {
+			isa = PBXGroup;
+			children = (
+				42A770CA2E56333500F3922B /* MainContracts.swift */,
+			);
+			path = MVP;
 			sourceTree = "<group>";
 		};
 		42C3CD542E51D7D600AB057D = {
@@ -192,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				42A770C12E55CDF700F3922B /* RegistrationViewModel.swift */,
+				42A770C32E55D42400F3922B /* RegistrationView.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -200,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				42A770B62E54B26900F3922B /* MainPlaceholderVC.swift */,
+				42A770C92E5632F900F3922B /* MVP */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -367,6 +381,7 @@
 				42C3CDAB2E52FBEB00AB057D /* AppCoordinator.swift in Sources */,
 				42A770C22E55CDF700F3922B /* RegistrationViewModel.swift in Sources */,
 				42A7708E2E548AA000F3922B /* NetworkError.swift in Sources */,
+				42A770C42E55D42400F3922B /* RegistrationView.swift in Sources */,
 				42A770BA2E55C9F400F3922B /* Validation.swift in Sources */,
 				42A7708A2E5330DB00F3922B /* SessionStore.swift in Sources */,
 				42A770B52E54929D00F3922B /* ProductsAPI.swift in Sources */,
@@ -375,6 +390,7 @@
 				42C3CD9B2E51DAD400AB057D /* ViewController.swift in Sources */,
 				42A770B72E54B26900F3922B /* MainPlaceholderVC.swift in Sources */,
 				42A770902E548C5000F3922B /* Client.swift in Sources */,
+				42A770CB2E56333500F3922B /* MainContracts.swift in Sources */,
 				42A7708C2E548A1C00F3922B /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

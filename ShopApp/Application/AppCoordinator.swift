@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class AppCoordinator {
     // UI
@@ -47,17 +48,17 @@ final class AppCoordinator {
         window.makeKeyAndVisible()
     }
     
-    // Переход на экран регистрации (плейсхолдер)
     private func showRegistration() {
-        let vc = RegistrationPlaceholderViewController()
-        vc.title = "Регистрация"
-        // Пример: по нажатию "Завершить" установим флаг и перейдём на Main.
-        vc.onFinish = { [weak self] name in
-            self?.sessionStore.userName = name
-            self?.sessionStore.isRegistered = true
+        let vm = RegistrationViewModel(sessionStore: sessionStore)
+        vm.onSuccess = { [weak self] in
             self?.showMainReplacingStack()
         }
-        navigationController.setViewControllers([vc], animated: false)
+        
+        let view = RegistrationView(viewModel: vm)
+            let host = UIHostingController(rootView: view)
+            host.title = "Регистрация"
+        
+        navigationController.setViewControllers([host], animated: false)
     }
     
     // Переход на главный экран (плейсхолдер)
@@ -77,41 +78,5 @@ final class AppCoordinator {
         )
         vc.title = "Главный экран"
         navigationController.setViewControllers([vc], animated: true)
-    }
-}
-
-// Плейсхолдер экрана регистрации
-final class RegistrationPlaceholderViewController: UIViewController {
-    var onFinish: ((String) -> Void)?
-    
-    private let button = UIButton(type: .system)
-    private let textField = UITextField()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        
-        textField.placeholder = "Введите имя"
-        textField.borderStyle = .roundedRect
-        
-        button.setTitle("Зарегистрироваться", for: .normal)
-        button.addTarget(self, action: #selector(finishTapped), for: .touchUpInside)
-        
-        let stack = UIStackView(arrangedSubviews: [textField, button])
-        stack.axis = .vertical
-        stack.spacing = 12
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(stack)
-        
-        NSLayoutConstraint.activate([
-            stack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            stack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            stack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-        ])
-    }
-    
-    @objc private func finishTapped() {
-        onFinish?(textField.text ?? "")
     }
 }
