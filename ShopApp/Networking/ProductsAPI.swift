@@ -11,7 +11,7 @@ protocol ProductsAPIType: AnyObject {
     func fetchProducts() async throws -> [Product]
 }
 
-final class StoreProductAPI: ProductsAPIType {
+final class StoreProductsAPI: ProductsAPIType {
     private let client: ClientType
     private let decoder: JSONDecoder
     private let baseURL = URL(string: "https://fakestoreapi.com")!
