@@ -22,12 +22,6 @@ final class MainPlaceholderVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Главный экран"
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(
-//            title: "Сброс",
-//            style: .plain,
-//            target: self,
-//            action: #selector(resetTapped)
-//        )
         
         let label = UILabel()
         label.textAlignment = .center
@@ -50,7 +44,4 @@ final class MainPlaceholderVC: UIViewController {
             }
         }
     }
-    
-//    var onLogout: (() -> Void)?
-//    @objc private func resetTapped() { onLogout?() }
 }

@@ -61,22 +61,13 @@ final class AppCoordinator {
         navigationController.setViewControllers([host], animated: false)
     }
     
-    // Переход на главный экран (плейсхолдер)
     private func showMain() {
-        let vc = MainPlaceholderVC(
-            userName: sessionStore.userName,
-            productsAPI: productsAPI
-        )
-        vc.title = "Главный экран"
+        let vc = Module.make(api: productsAPI, sessionStore: sessionStore)
         navigationController.setViewControllers([vc], animated: false)
     }
     
     private func showMainReplacingStack() {
-        let vc = MainPlaceholderVC(
-            userName: sessionStore.userName,
-            productsAPI: productsAPI
-        )
-        vc.title = "Главный экран"
+        let vc = Module.make(api: productsAPI, sessionStore: sessionStore)
         navigationController.setViewControllers([vc], animated: true)
     }
 }
