@@ -17,13 +17,13 @@ final class RegistrationViewModelTests: XCTestCase {
         viewModel.password = "Qwerty1"
         viewModel.confirmPassword = "Qwerty1"
         
-        let called = expectation(description: "onSuccess")
-        viewModel.onSuccess = { called.fulfill() }
+        var onSuccessCalled = false
+        viewModel.onSuccess = { onSuccessCalled = true }
         
         viewModel.register()
         
-        XCTAssertTrue(store.isRegistered)
+        XCTAssertTrue(store.isRegistered, "isRegistered должен стать true")
         XCTAssertEqual(store.userName, "Alex")
-        wait(for: [called], timeout: 0.2)
+        XCTAssertTrue(onSuccessCalled, "onSuccess должен быть вызван")
     }
 }

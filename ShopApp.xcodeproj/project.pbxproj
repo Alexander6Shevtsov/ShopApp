@@ -87,6 +87,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42150A7A2E58A4D1000CAC78 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Docs;
+			sourceTree = "<group>";
+		};
 		4292AABE2E57450000CD9B19 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +169,7 @@
 				4292AAC02E57469F00CD9B19 /* Resources */,
 				42C3CD952E51DAD400AB057D /* LaunchScreen.storyboard */,
 				42C3CD932E51DAD400AB057D /* Info.plist */,
+				42150A7A2E58A4D1000CAC78 /* Docs */,
 				42C3CDA82E52FA9000AB057D /* ShopAppTests */,
 			);
 			path = ShopApp;
