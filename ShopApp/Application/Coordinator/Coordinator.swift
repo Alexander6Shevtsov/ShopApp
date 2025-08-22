@@ -50,12 +50,12 @@ final class Coordinator {
     }
     
     private func showRegistration() {
-        let vm = RegistrationViewModel(sessionStore: sessionStore)
-        vm.onSuccess = { [weak self] in
+        let registerVM = RegistrationViewModel(sessionStore: sessionStore)
+        registerVM.onSuccess = { [weak self] in
             self?.showMainReplacingStack()
         }
         
-        let view = RegistrationView(viewModel: vm)
+        let view = RegistrationView(viewModel: registerVM)
             let host = UIHostingController(rootView: view)
             host.title = "Регистрация"
         
@@ -63,12 +63,12 @@ final class Coordinator {
     }
     
     private func showMain() {
-        let vc = Module.make(api: productsAPI, sessionStore: sessionStore)
-        navigationController.setViewControllers([vc], animated: false)
+        let catalog = Module.make(api: productsAPI, sessionStore: sessionStore)
+        navigationController.setViewControllers([catalog], animated: false)
     }
     
     private func showMainReplacingStack() {
-        let vc = Module.make(api: productsAPI, sessionStore: sessionStore)
-        navigationController.setViewControllers([vc], animated: true)
+        let catalog = Module.make(api: productsAPI, sessionStore: sessionStore)
+        navigationController.setViewControllers([catalog], animated: true)
     }
 }

@@ -51,7 +51,6 @@ final class RegistrationViewModel: ObservableObject {
         
         sessionStore.userName = firstName
         sessionStore.isRegistered = true
-        
         onSuccess?()
     }
 }

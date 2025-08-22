@@ -11,7 +11,7 @@ import Foundation
 final class Presenter: PresenterType {
     private weak var view: MainView?
     private let interactor: InteractorType
-    private let sessionStore: SessionStoreType
+    private let userName: String
     
     private lazy var formatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -20,10 +20,10 @@ final class Presenter: PresenterType {
         return formatter
     }()
     
-    init(view: MainView, interactor: InteractorType, sessionStore: SessionStoreType) {
+    init(view: MainView, interactor: InteractorType, userName: String) {
         self.view = view
         self.interactor = interactor
-        self.sessionStore = sessionStore
+        self.userName = userName
     }
     
     func viewDidLoad() {
@@ -31,11 +31,11 @@ final class Presenter: PresenterType {
         Task { [interactor, weak view] in
             do {
                 let products = try await interactor.fetchProducts()
-                let models = products.map { product in
+                let models = products.map {
                     CellViewModel(
-                        id: product.id,
-                        title: product.title,
-                        price: formatter.string(from: NSNumber(value: product.price)) ?? "\(product.price)"
+                        id: $0.id,
+                        title: $0.title,
+                        price: formatter.string(from: NSNumber(value: $0.price)) ?? "\($0.price)"
                     )
                 }
                 await MainActor.run { view?.render(.data(models)) }
@@ -45,10 +45,7 @@ final class Presenter: PresenterType {
         }
     }
     
-    func didTapGreeting() {
-        let name = sessionStore.userName ?? "гость"
-        view?.showGreeting("Привет, \(name)!")
-    }
+    func didTapGreeting() { view?.showGreeting("Привет, \(userName)!") }
     
     func didPullToRefresh() {
         Task { [interactor, weak view] in

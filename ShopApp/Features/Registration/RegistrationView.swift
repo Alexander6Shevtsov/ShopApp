@@ -16,9 +16,9 @@ struct RegistrationView: View {
     
     private let dateRange: ClosedRange<Date> = {
         let now = Date()
-        var dc = DateComponents()
-        dc.year = 1900; dc.month = 1; dc.day = 1
-        let min = Calendar.current.date(from: dc) ?? Date(timeIntervalSince1970: 0)
+        var dateComponts = DateComponents()
+        dateComponts.year = 1900; dateComponts.month = 1; dateComponts.day = 1
+        let min = Calendar.current.date(from: dateComponts) ?? Date(timeIntervalSince1970: 0)
         return min...now
     }()
     
