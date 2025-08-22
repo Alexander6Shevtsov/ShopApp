@@ -32,7 +32,7 @@ final class Coordinator {
         navigationController.navigationBar.prefersLargeTitles = true
         
         let appearance = UINavigationBarAppearance()
-        appearance.configureWithDefaultBackground() // убирает “прозрачные” состояния
+        appearance.configureWithDefaultBackground()
         navigationController.navigationBar.standardAppearance = appearance
         navigationController.navigationBar.scrollEdgeAppearance = appearance
         navigationController.navigationBar.compactAppearance = appearance
@@ -56,8 +56,8 @@ final class Coordinator {
         }
         
         let view = RegistrationView(viewModel: registerVM)
-            let host = UIHostingController(rootView: view)
-            host.title = "Регистрация"
+        let host = UIHostingController(rootView: view)
+        host.title = "Регистрация"
         
         navigationController.setViewControllers([host], animated: false)
     }

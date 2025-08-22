@@ -8,9 +8,7 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
     var window: UIWindow?
-    
     private var appCoordinator: Coordinator?
     
     func scene(
