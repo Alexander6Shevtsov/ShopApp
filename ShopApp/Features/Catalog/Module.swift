@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 enum Module {
     static func make(api: ProductsAPIType, sessionStore: SessionStoreType) -> UIViewController {
         let view = ViewController()

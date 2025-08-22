@@ -13,8 +13,9 @@ final class ViewController: UIViewController, MainView {
     private let tableView = UITableView(frame: .zero, style: .insetGrouped)
     private var dataSource: UITableViewDiffableDataSource<Int, CellViewModel>!
     private let spinner = UIActivityIndicatorView(style: .large)
+    private let refresh = UIRefreshControl()
     
-    func setPresenter(_ p: PresenterType) { self.presenter = p }
+    func setPresenter(_ presenter: PresenterType) { self.presenter = presenter }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,9 @@ final class ViewController: UIViewController, MainView {
         
         tableView.register(Cell.self, forCellReuseIdentifier: Cell.reuseID)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.refreshControl = refresh
+        refresh.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -38,12 +42,9 @@ final class ViewController: UIViewController, MainView {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        dataSource = UITableViewDiffableDataSource<
-            Int,
-            CellViewModel
-        >(tableView: tableView) { table, indexPath, vm in
+        dataSource = UITableViewDiffableDataSource<Int, CellViewModel>(tableView: tableView) { table, indexPath, viewModel in
             let cell = table.dequeueReusableCell(withIdentifier: Cell.reuseID, for: indexPath) as! Cell
-            cell.configure(with: vm)
+            cell.configure(with: viewModel)
             return cell
         }
         
@@ -57,21 +58,20 @@ final class ViewController: UIViewController, MainView {
         presenter.viewDidLoad()
     }
     
-    @objc private func greetingTapped() {
-        presenter.didTapGreeting()
-    }
+    @objc private func greetingTapped() { presenter.didTapGreeting() }
+    @objc private func onRefresh() { presenter.didPullToRefresh() }
     
     // MARK: - MainView
     
-    func render(_ state: MainViewState) {
+    func render(_ state: StateView) {
         switch state {
         case .loading:
             spinner.startAnimating()
-        case .data(let vms):
+        case .data(let models):
             spinner.stopAnimating()
             var snapshot = NSDiffableDataSourceSnapshot<Int, CellViewModel>()
             snapshot.appendSections([0])
-            snapshot.appendItems(vms, toSection: 0)
+            snapshot.appendItems(models, toSection: 0)
             dataSource.apply(snapshot, animatingDifferences: true)
         case .error(let message):
             spinner.stopAnimating()
@@ -80,6 +80,8 @@ final class ViewController: UIViewController, MainView {
             present(alert, animated: true)
         }
     }
+    
+    func endRefreshing() { refresh.endRefreshing() }
     
     func showGreeting(_ text: String) {
         let alert = UIAlertController(title: nil, message: text, preferredStyle: .alert)

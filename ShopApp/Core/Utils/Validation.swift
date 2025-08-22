@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NameValidator {
+enum Validator {
     static func validateFirstName(_ s: String) -> String? {
         s.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "Введите имя" : nil
     }

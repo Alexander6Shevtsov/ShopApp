@@ -1,5 +1,5 @@
 //
-//  MainContracts.swift
+//  Contracts.swift
 //  ShopApp
 //
 //  Created by Alexander Shevtsov on 20.08.2025.
@@ -7,20 +7,24 @@
 
 import UIKit
 
-enum MainViewState {
+enum StateView {
     case loading
     case data([CellViewModel])
     case error(String)
 }
 
+@MainActor
 protocol MainView: AnyObject {
-    func render(_ state: MainViewState)
+    func render(_ state: StateView)
     func showGreeting(_ text: String)
+    func endRefreshing()
 }
 
+@MainActor
 protocol PresenterType: AnyObject {
     func viewDidLoad()
     func didTapGreeting()
+    func didPullToRefresh()
 }
 
 protocol InteractorType: AnyObject {

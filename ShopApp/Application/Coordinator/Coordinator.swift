@@ -1,5 +1,5 @@
 //
-//  AppCoordinator.swift
+//  Coordinator.swift
 //  ShopApp
 //
 //  Created by Alexander Shevtsov on 18.08.2025.
@@ -8,7 +8,8 @@
 import UIKit
 import SwiftUI
 
-final class AppCoordinator {
+@MainActor
+final class Coordinator {
     // UI
     private let window: UIWindow
     private let navigationController = UINavigationController()

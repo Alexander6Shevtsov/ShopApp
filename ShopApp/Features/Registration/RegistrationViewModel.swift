@@ -34,8 +34,8 @@ final class RegistrationViewModel: ObservableObject {
     }
     
     private func validateAll() -> Bool {
-        firstNameError = NameValidator.validateFirstName(firstName)
-        lastNameError = NameValidator.validateLastName(lastName)
+        firstNameError = Validator.validateFirstName(firstName)
+        lastNameError = Validator.validateLastName(lastName)
         passwordError = PasswordValidator.validate(password)
         confirmError = PasswordValidator.confirm(password, confirmPassword)
         

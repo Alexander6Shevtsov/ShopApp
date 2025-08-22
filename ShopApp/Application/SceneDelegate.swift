@@ -11,7 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
-    private var appCoordinator: AppCoordinator?
+    private var appCoordinator: Coordinator?
     
     func scene(
         _ scene: UIScene,
@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let coordinator = AppCoordinator(window: window)
+        let coordinator = Coordinator(window: window)
         coordinator.start()
         self.window = window
         self.appCoordinator = coordinator
