@@ -16,15 +16,15 @@ struct RegistrationView: View {
     
     private let dateRange: ClosedRange<Date> = {
         let now = Date()
-        var dateComponts = DateComponents()
-        dateComponts.year = 1900; dateComponts.month = 1; dateComponts.day = 1
-        let min = Calendar.current.date(from: dateComponts) ?? Date(timeIntervalSince1970: 0)
+        var dateComp = DateComponents()
+        dateComp.year = 1900; dateComp.month = 1; dateComp.day = 1
+        let min = Calendar.current.date(from: dateComp) ?? Date(timeIntervalSince1970: 0)
         return min...now
     }()
     
     var body: some View {
         Form {
-            Section(header: Text("Регистрация")) {
+            Section {
                 TextField("Имя", text: $viewModel.firstName)
                     .textContentType(.givenName)
                     .disableAutocorrection(true)
@@ -43,9 +43,11 @@ struct RegistrationView: View {
                     in: dateRange,
                     displayedComponents: .date
                 )
+            } header: {
+                Color.clear.frame(height: 10)
             }
             
-            Section(header: Text("Безопасность")) {
+            Section {
                 SecureField("Пароль", text: $viewModel.password)
                     .textContentType(.newPassword)
                 fieldError(viewModel.passwordError)
@@ -53,6 +55,8 @@ struct RegistrationView: View {
                 SecureField("Повтор пароля", text: $viewModel.confirmPassword)
                     .textContentType(.newPassword)
                 fieldError(viewModel.confirmError)
+            } header: {
+                Color.clear.frame(height: 6)
             }
             
             Section {
@@ -80,6 +84,6 @@ struct RegistrationView: View {
 #Preview {
     let defaults = UserDefaults(suiteName: "Preview")!
     let store = UserDefaultsSessionStore(defaults: defaults)
-    let vm = RegistrationViewModel(sessionStore: store)
-    return RegistrationView(viewModel: vm)
+    let viewModel = RegistrationViewModel(sessionStore: store)
+    return RegistrationView(viewModel: viewModel)
 }

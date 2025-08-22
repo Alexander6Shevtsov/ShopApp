@@ -10,10 +10,18 @@ import UIKit
 @MainActor
 enum Module {
     static func make(api: ProductsAPIType, sessionStore: SessionStoreType) -> UIViewController {
-        let view = ViewController()
+        guard let userName = sessionStore.userName, !userName.isEmpty else {
+            fatalError("Пожалуйста зарегистрируйтесь")
+        }
+        
+        let viewController = ViewController()
         let interactor = Interactor(api: api)
-        let presenter = Presenter(view: view, interactor: interactor, sessionStore: sessionStore)
-        view.setPresenter(presenter)
-        return view
+        let presenter = Presenter(
+            view: viewController,
+            interactor: interactor,
+            userName: userName
+        )
+        viewController.setPresenter(presenter)
+        return viewController
     }
 }
