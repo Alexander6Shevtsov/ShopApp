@@ -1,13 +1,11 @@
 # ShopApp
 
-Демо-приложение для тестового задания.
-
 ## Стек
 - Swift 5.10+, iOS 15.0+
-- UIKit для главного экрана, SwiftUI для регистрации
+- UIKit главный экран, SwiftUI регистрация
 - Архитектура: MVP + Coordinator, принципы SOLID, Clean Architecture-слои
-- Сеть: URLSession через `ClientType`
-- Хранилище: `UserDefaults` через `SessionStoreType`
+- Сеть: URLSession
+- Хранилище: `UserDefaults`
 - Тесты: XCTest
 
 ## Скриншоты
@@ -25,18 +23,11 @@
 
 ## API
 `GET https://fakestoreapi.com/products`  
-Используются поля `id`, `title`, `price`.
-
-## Архитектура
-- **Coordinator** создаёт окно, выбирает стартовый экран по `SessionStoreType.isRegistered`.
-- **Registration (SwiftUI)**: вся логика в `RegistrationViewModel`. По успеху — запись имени и флага регистрации, навигация в координаторе.
-- **Main (UIKit, MVP)**:  
-  Presenter → Interactor(API) → Presenter мапит в `CellViewModel` → ViewController рендерит.
 
 ## Тесты
-- `ValidatorTests` проверяют валидаторы полей.
-- `RegistrationViewModelTests` проверяет успешную регистрацию и запись сессии.
+- `ValidatorTests` валидатор полей.
+- `RegistrationViewModelTests` успешная регистрация и запись сессии.
 
 ## Примечания
 - Главный экран недоступен без регистрации.
-- Сброс сессии: удалить приложение из симулятора.
+- Сброс регистрации: удалить приложение из симулятора.
