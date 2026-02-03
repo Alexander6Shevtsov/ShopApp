@@ -2,7 +2,8 @@
 
 ## Стек
 - Swift 5.10+, iOS 15.0+
-- UIKit главный экран, SwiftUI регистрация
+- UIKit главный экран
+-  SwiftUI регистрация
 - Архитектура: MVP + Coordinator, принципы SOLID, Clean Architecture-слои
 - Сеть: URLSession
 - Хранилище: `UserDefaults`
