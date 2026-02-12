@@ -1,12 +1,13 @@
 # ShopApp
+Магазин + регистрация
 
 ## Стек
 - Swift 5.10+, iOS 15.0+
 - UIKit главный экран
 -  SwiftUI регистрация
-- Архитектура: MVP + Coordinator, принципы SOLID, Clean Architecture-слои
+- Архитектура: MVP + Coordinator, SOLID, Clean
 - Сеть: URLSession
-- Хранилище: `UserDefaults`
+- Хранилище: UserDefaults
 - Тесты: XCTest
 
 ## Скриншоты
@@ -29,6 +30,6 @@
 - `ValidatorTests` валидатор полей.
 - `RegistrationViewModelTests` успешная регистрация и запись сессии.
 
-## Примечания
+## Примечане
 - Главный экран недоступен без регистрации.
 - Сброс регистрации: удалить приложение из симулятора.
